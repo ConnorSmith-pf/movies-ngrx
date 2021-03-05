@@ -1,7 +1,7 @@
 {
   "name": "contacts-ngrx",
   "version": "0.0.0",
-  "homepage": "https://connorsmith-contacts-ngrx.github.io/",
+  "homepage": "https://connorsmith-pf.github.io/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
