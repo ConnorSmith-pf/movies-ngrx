@@ -1,1 +1,1 @@
-# contacts-ngrx
+# movies-ngrx

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "contacts-ngrx": {
+    "movies-ngrx": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "contacts",
+      "prefix": "movies",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "contacts-ngrx:build"
+            "browserTarget": "movies-ngrx:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "contacts-ngrx:build:production"
+              "browserTarget": "movies-ngrx:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "contacts-ngrx:build"
+            "browserTarget": "movies-ngrx:build"
           }
         },
         "test": {
@@ -104,16 +104,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "contacts-ngrx:serve"
+            "devServerTarget": "movies-ngrx:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "contacts-ngrx:serve:production"
+              "devServerTarget": "movies-ngrx:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "contacts-ngrx"
+  "defaultProject": "movies-ngrx"
 }
