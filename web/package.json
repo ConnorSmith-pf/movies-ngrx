@@ -3,11 +3,8 @@
   "version": "0.1.0",
   "homepage": "https://connorsmith-pf.github.io/",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
+    "lint": "npx ng lint",
     "e2e": "ng e2e",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
