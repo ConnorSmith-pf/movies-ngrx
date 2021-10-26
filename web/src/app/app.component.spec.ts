@@ -14,10 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'contacts-ngrx'`, () => {
+  it(`should have as title 'movies-ngrx'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('contacts-ngrx');
+    expect(app.title).toEqual('movies-ngrx');
   });
 
   it('should render title', () => {
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain(
-      'contacts-ngrx app is running!'
+      'movies-ngrx app is running!'
     );
   });
 });
