@@ -10,7 +10,7 @@ const _counterReducer: ActionReducer<number> = createReducer(
     on(reset, () => 0),
 );
 
-export function counterReducer(state: number | undefined, action: Action): number {
+export function counterReducer(state: number, action: Action): number {
     return _counterReducer(state, action);
 }
 
