@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'movies-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    template: '<router-outlet></router-outlet>',
 })
 export class AppComponent {
-    public title = 'movies-ngrx';
 }
