@@ -8,14 +8,17 @@ const APP_ROUTES: Routes = [
     {
         path: '',
         component: HomeComponent,
+        loadChildren: () => import('../components/home/home.module').then(m => m.HomeModule)
     },
     {
         path: 'counter',
-        component: MyCounterComponent
+        component: MyCounterComponent,
+        loadChildren: () => import('../components/my-counter/my-counter.module').then(m => m.MyCounterModule)
     },
     {
         path: '**',
-        component: PageNotFoundComponent
+        component: PageNotFoundComponent,
+        loadChildren: () => import('../components/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
     }
 ];
 

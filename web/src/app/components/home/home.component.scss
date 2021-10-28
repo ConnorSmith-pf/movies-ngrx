@@ -1,0 +1,21 @@
+.movies-container {
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "body";
+    grid-template-rows: 6.4rem 1fr;
+
+    &__header {
+        grid-area: header;
+        background-color: pink;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    &__body {
+        grid-area: body;
+        background-color: grey;
+        padding: 2.5rem;
+    }
+}

@@ -1,0 +1,46 @@
+<div class="header-container">
+    <div class="header-container__icon-title">
+        <a class="header-container__icon-title--icon"
+           routerLink="/">
+            <img alt="Movies Logo"
+                 src="/assets/images/common/movies.svg">
+        </a>
+        <h1 class="header-container__icon-title--title">Movies - NgRx</h1>
+    </div>
+    <div class="header-container__search">
+        <div class="search-wrap">
+            <input
+                [placeholder]="'Search TMDB API'"
+                class="search-wrap__input"
+                type="text"
+            >
+            <button matPrefix>
+                <img
+                    alt="Clear Search"
+                    class="btn-icon"
+                    src="/assets/images/common/clear_white.svg"
+                >
+            </button>
+            <button
+                class="btn-new btn-search"
+                type="submit"
+            >
+                <img
+                    class="btn-icon"
+                    src="/assets/images/common/search_white.svg"
+                >
+            </button>
+        </div>
+    </div>
+    <div class="header-container__powered-by">
+        <h2 class="header-container__powered-by--suffix">
+            Powered By
+        </h2>
+        <a class="header-container__powered-by--icon"
+           href="https://www.themoviedb.org/"
+           target="_blank">
+            <img alt="The Movie Database (TMDB)"
+                 src="/assets/images/common/alt-long-blue.svg">
+        </a>
+    </div>
+</div>
