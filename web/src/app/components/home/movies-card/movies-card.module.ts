@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MoviesCardComponent } from './movies-card.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [MoviesCardComponent],
     imports: [
         CommonModule
     ]
