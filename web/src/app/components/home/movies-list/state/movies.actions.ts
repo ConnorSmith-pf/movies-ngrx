@@ -11,3 +11,6 @@ export const loadMoviesSuccess = createAction(
 export const loadMoviesFailure = createAction(
     '[Movie List] Load Movies Failure'
 );
+export const sortMoviesByRating = createAction(
+    '[Movie List] Sort Movies By Rating'
+);

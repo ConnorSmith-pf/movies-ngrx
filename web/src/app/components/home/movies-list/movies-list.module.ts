@@ -6,11 +6,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { MoviesEffects } from './state/movies.effects';
 import { movieReducer } from './state/movies.reducer';
 import { FeaturesEnum } from '../../../state/features.enum';
+import { MovieCardModule } from '../movie-card/movie-card.module';
 
 @NgModule({
     declarations: [MoviesListComponent],
     imports: [
         CommonModule,
+        MovieCardModule,
         StoreModule.forFeature(FeaturesEnum.Movies, movieReducer),
         EffectsModule.forFeature([MoviesEffects]),
     ]

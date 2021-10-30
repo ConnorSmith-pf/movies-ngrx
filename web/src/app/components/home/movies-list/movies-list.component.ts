@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { MovieModel } from '../../../models/movie.model';
 import { AppState } from '../../../state/app.state';
 import { getMovies } from './state/movies.selector';
-import { loadMovies } from './state/movies.actions';
+import { loadMovies, sortMoviesByRating } from './state/movies.actions';
 
 @Component({
     selector: 'movies-movies-list',
@@ -15,7 +15,7 @@ export class MoviesListComponent implements OnInit {
     public moviesList$: Observable<Array<MovieModel>>;
 
     constructor(private readonly store: Store<AppState>) {
-        this.moviesList$ = this.store.select(getMovies)
+        this.moviesList$ = this.store.select(getMovies);
     }
 
     public trackById(index: number, item: MovieModel): number {
@@ -23,6 +23,6 @@ export class MoviesListComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.store.dispatch(loadMovies())
+        this.store.dispatch(loadMovies());
     }
 }

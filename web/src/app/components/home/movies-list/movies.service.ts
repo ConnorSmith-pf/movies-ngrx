@@ -12,10 +12,12 @@ export class MoviesService {
     constructor(private readonly http: HttpClient) {
     }
 
-    public getLatestMovies(): Observable<Array<MovieModel>> {
+    public getNowPlaying$(): Observable<Array<MovieModel>> {
         return this.http.get<MoviesResponseModel<MovieModel>>(
-            `${ environment.TMDB_API_URL }/movie/now_playing?api_key=${ environment.TMDB_API_KEY }`
-        ).pipe(map(({ results }) => results));
+            `${environment.TMDB_API_URL}/movie/now_playing?api_key=${environment.TMDB_API_KEY}`
+        ).pipe(
+            map(({ results }) => results)
+        );
     }
 
     public getMovieDetail(): Observable<MovieModel> {

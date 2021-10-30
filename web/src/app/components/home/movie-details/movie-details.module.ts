@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviesCardComponent } from './movies-card.component';
+import { MovieDetailsComponent } from './movie-details.component';
 
 @NgModule({
-    declarations: [MoviesCardComponent],
+    declarations: [MovieDetailsComponent],
     imports: [
         CommonModule
     ]
 })
-export class MoviesCardModule {
+export class MovieDetailsModule {
 }

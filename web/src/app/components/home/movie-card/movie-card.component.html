@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card__image">
+        <!--        <img [src]="''"-->
+        <!--             [alt]="movie.title + ' Poster'"-->
+        <!--             loading="lazy">-->
+    </div>
+    <div class="card__information">
+        <h3 class="title">
+            {{movie.title}}
+        </h3>
+        <div class="split-container">
+            <div class="rating">
+                <h4 class="rating__text">{{movie.vote_average | number : '1.1-2'}} ({{movie.vote_count}})</h4>
+            </div>
+            <div class="view">
+                <button mat-stroked-button
+                        [routerLink]="['/movie', movie.id]"
+                >View
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
