@@ -1,6 +1,6 @@
 <div class="movie-list-container">
     <div class="movie-list-container__sort-by-strip">Sort By Strip</div>
     <div class="movie-list-container__content">
-        <p *ngFor="let movie of moviesList$ | async; trackBy: trackById">{{movie.movieName}}</p>
+        <p *ngFor="let movie of moviesList$ | async; trackBy: trackById">{{movie.id}}</p>
     </div>
 </div>

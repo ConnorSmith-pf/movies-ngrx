@@ -18,8 +18,8 @@ export class MoviesListComponent implements OnInit {
         this.moviesList$ = this.store.select(getMovies)
     }
 
-    public trackById(index: number, item: MovieModel): string {
-        return item.movieName;
+    public trackById(index: number, item: MovieModel): number {
+        return item.id as number;
     }
 
     public ngOnInit(): void {
