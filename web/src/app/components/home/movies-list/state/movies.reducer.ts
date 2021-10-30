@@ -1,15 +1,14 @@
 import { MovieModel } from '../../../../models/movie.model';
-import { Action, createReducer, on } from '@ngrx/store';
+import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 import { loadMoviesSuccess } from './movies.actions';
 
 const defaultAppState: Array<MovieModel> = [];
 
-const _reducer = createReducer(
+const _reducer: ActionReducer<Array<MovieModel>> = createReducer(
     defaultAppState,
     on(loadMoviesSuccess, (state, { movies }) => movies.map(movie => movie))
 );
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function movieReducer(state: Array<MovieModel> = defaultAppState, action: Action) {
+export function movieReducer(state: Array<MovieModel> = defaultAppState, action: Action): Array<MovieModel> {
     return _reducer(state, action);
 }
