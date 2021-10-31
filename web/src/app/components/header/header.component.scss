@@ -1,8 +1,8 @@
 .header-container {
     height: 100%;
     display: grid;
-    grid-template-areas: "header-icon search powered-by";
-    grid-template-columns: 20% 1fr 30%;
+    grid-template-areas: "header-icon";
+    grid-template-columns: 1fr;
 
     &__icon-title {
         grid-area: header-icon;
@@ -11,7 +11,6 @@
         flex-direction: row;
 
         &--icon {
-            color: lightgray;
             margin-right: .5rem;
 
             img {
@@ -20,7 +19,9 @@
         }
 
         &--title {
+            color: #FFFFFF;
             margin: auto 0;
+            font-size: 3rem;
         }
     }
 
@@ -40,28 +41,5 @@
                 padding: .25rem .5rem .25rem .25rem;
             }
         }
-    }
-
-    &__powered-by {
-        grid-area: powered-by;
-
-        margin-left: auto;
-        display: flex;
-        flex-direction: row;
-
-        &--suffix {
-            margin: auto 0;
-        }
-
-        &--icon {
-            margin: auto 0 auto .5rem;
-            aspect-ratio: auto 154/20;
-
-            img {
-                height: 100%;
-                width: 100%;
-            }
-        }
-
     }
 }

@@ -1,3 +1,56 @@
-<ng-container *ngIf="movieDetails$ | async as movieDetail">
-    <p>{{movieDetail.title}}</p>
-</ng-container>
+<div class="movie-details-container" *ngIf="movieDetails$ | async as movie">
+    <div class="title-year">
+        <h1 class="title-year__text">{{movie.title}}</h1>
+        <h1 class="title-year__release-year">({{movie.release_date | date : 'yyyy'}})</h1>
+    </div>
+    <div class="facts">
+        <span class="facts__avg">Rating: {{movie.vote_average | number : '1.1-2'}} ({{movie.vote_count | number}}
+            )</span>
+        <span class="facts__genre" *ngFor="let genre of movie.genres">{{genre.name}}</span>
+        <span class="facts__runtime">{{movie.runtime | runtime}}</span>
+    </div>
+    <ng-container *ngIf="imageConfig$ | async as imageConfig">
+        <div class="poster">
+            <img [src]="imageConfig.images.secure_base_url + imageConfig.images.poster_sizes[3] + movie.poster_path"
+                 [alt]="movie.title + ' Poster'"
+                 loading="lazy">
+            <div class="poster__tagline">{{movie.tagline}}</div>
+        </div>
+    </ng-container>
+    <div class="overview-container">
+        <h1 class="overview-container__title">Overview</h1>
+        <div class="overview-container__description">
+            {{movie.overview}}
+        </div>
+        <div class="split-container">
+            <div class="cast-credits">
+                <h1 class="overview-container__title">Cast Credits</h1>
+                <div class="overview-container__description">
+                    <ng-container *ngFor="let cast of movie.credits.cast; index as i; count as count;">
+                        {{cast.name | lazyListPipe : i : count }}
+                    </ng-container>
+                </div>
+            </div>
+            <div class="other-facts">
+                <div class="other-facts__title">
+                    <h3 class="other-facts__title--heading">Status</h3>
+                    <p class="other-facts__title--text">{{movie.status}}</p>
+                </div>
+                <div class="other-facts__title">
+                    <h3 class="other-facts__title--heading">Budget</h3>
+                    <p class="other-facts__title--text">${{movie.budget | number : '1.2-2'}}</p>
+                </div>
+                <div class="other-facts__title">
+                    <h3 class="other-facts__title--heading">Revenue</h3>
+                    <p class="other-facts__title--text">${{movie.revenue | number : '1.2-2'}}</p>
+                </div>
+            </div>
+        </div>
+        <h1 class="overview-container__title">Crew Credits</h1>
+        <div class="overview-container__description">
+            <ng-container *ngFor="let crew of movie.credits.crew; index as i; count as count;">
+                {{crew.name | lazyListPipe : i : count }}
+            </ng-container>
+        </div>
+    </div>
+</div>

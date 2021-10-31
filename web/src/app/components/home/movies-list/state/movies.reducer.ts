@@ -1,14 +1,24 @@
-import { MovieModel } from '../../../../models/movie.model';
-import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
-import { loadMoviesSuccess } from './movies.actions';
+import { MovieListModel } from '../models/movie-list.model';
+import { Action, createReducer, on } from '@ngrx/store';
+import { loadMoviesSuccess, setSortedBy } from './movies.actions';
+import { SortByValueModel } from '../models/sort-by-value.model';
 
-const defaultAppState: Array<MovieModel> = [];
+//TODO: Investigate, is this inefficient?
 
-const _reducer: ActionReducer<Array<MovieModel>> = createReducer(
-    defaultAppState,
-    on(loadMoviesSuccess, (state, { movies }) => movies.map(movie => movie))
+const _movieListReducer = createReducer(
+    [] as Array<MovieListModel>,
+    on(loadMoviesSuccess, (state: Array<MovieListModel>, { movies }) => [...state, ...movies.map(movie => movie)]),
 );
 
-export function movieReducer(state: Array<MovieModel> = defaultAppState, action: Action): Array<MovieModel> {
-    return _reducer(state, action);
+const _sortedByReducer = createReducer(
+    { viewValue: 'Default' },
+    on(setSortedBy, (state: SortByValueModel, { sortedBy }) => sortedBy)
+);
+
+export function movieListReducer(state: Array<MovieListModel>, action: Action): Array<MovieListModel> {
+    return _movieListReducer(state, action);
+}
+
+export function sortedByReducer(state: SortByValueModel, action: Action): SortByValueModel {
+    return _sortedByReducer(state, action);
 }

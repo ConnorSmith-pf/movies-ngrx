@@ -24,6 +24,8 @@ export interface MovieModel {
     video: boolean;
     vote_average: number;
     vote_count: number;
+
+    credits: Credits;
 }
 
 interface GenreModel {
@@ -46,4 +48,40 @@ interface ProductionCountryModel {
 }
 
 interface SpokenLanguageModel {
+}
+
+//TODO: Refactor into common interfaces;
+export interface Credits {
+    id: number;
+    cast: Array<CastModel>;
+    crew: Array<CrewModel>;
+}
+
+interface CastModel {
+    adult: boolean;
+    gender: number | null;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    cast_id: number;
+    character: string;
+    credit_id: number;
+    order: number;
+}
+
+interface CrewModel {
+    adult: boolean;
+    gender: number | null;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    credit_id: number;
+    department: string;
+    job: string;
 }

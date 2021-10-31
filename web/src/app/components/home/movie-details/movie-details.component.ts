@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from '../../../state/app.state';
 import { Store } from '@ngrx/store';
 import { Observable, take, tap } from 'rxjs';
-import { MovieModel } from '../../../models/movie.model';
 import { ActivatedRoute } from '@angular/router';
-import { getMovie } from '../movies-list/state/movies.selector';
+import { ApiImageConfigurationModel } from '../../../models/api-image-configuration.model';
+import { getApiImageConfig } from '../../../configuration/state/api-configuration.selector';
+import { MovieModel } from './models/movie.model';
+import { getMovie } from './state/movie-details.selector';
+import { loadMovie } from './state/movie-details.actions';
 
 @Component({
     selector: 'movies-movie-details',
@@ -12,13 +15,18 @@ import { getMovie } from '../movies-list/state/movies.selector';
     styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-    public movieDetails$: Observable<MovieModel | undefined> | undefined;
+    public movieDetails$!: Observable<MovieModel>;
+    public imageConfig$: Observable<ApiImageConfigurationModel>;
 
-    constructor(private readonly store: Store<AppState>,
+    constructor(private readonly state: Store<AppState>,
                 private readonly route: ActivatedRoute) {
+        this.imageConfig$ = this.state.select(getApiImageConfig);
         this.route.params.pipe(
             take(1),
-            tap(({ id }) => this.movieDetails$ = this.store.select(getMovie(id)))
+            tap(({ id }) => {
+                this.movieDetails$ = this.state.select(getMovie) as Observable<MovieModel>;
+                this.state.dispatch(loadMovie({ id }));
+            })
         ).subscribe();
     }
 

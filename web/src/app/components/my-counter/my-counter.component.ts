@@ -11,19 +11,19 @@ import { decrement, increment, reset } from './state/counter.actions';
 export class MyCounterComponent {
     public count$: Observable<number>;
 
-    constructor(private readonly store: Store<{ count: number }>) {
-        this.count$ = store.select('count');
+    constructor(private readonly state: Store<{ count: number }>) {
+        this.count$ = state.select('count');
     }
 
     public increment(): void {
-        this.store.dispatch(increment());
+        this.state.dispatch(increment());
     }
 
     public decrement(): void {
-        this.store.dispatch(decrement());
+        this.state.dispatch(decrement());
     }
 
     public reset(): void {
-        this.store.dispatch(reset());
+        this.state.dispatch(reset());
     }
 }
