@@ -16,6 +16,7 @@ export class MoviesEffects {
         )
     );
 
-    constructor(private readonly actions$: Actions, private readonly moviesService: MoviesService) {
+    constructor(private readonly actions$: Actions,
+                private readonly moviesService: MoviesService) {
     }
 }

@@ -1,5 +1,7 @@
 <div class="movie-list-container">
-    <div class="movie-list-container__sort-by-strip">Sort By Strip</div>
+    <div class="movie-list-container__sort-by-strip">Sort By Strip
+        <button (click)="sortBy()">Sort By</button>
+    </div>
     <div class="movie-list-container__content">
         <movies-movies-card *ngFor="let movie of moviesList$ | async; trackBy: trackById"
                             [movie]="movie">
