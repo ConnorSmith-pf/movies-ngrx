@@ -94,7 +94,6 @@ module.exports = {
         'no-ex-assign': 'error',
         'no-inner-declarations': 'error',
         'no-invalid-regexp': 'error',
-        'no-invalid-this': 'error',
         'no-irregular-whitespace': 'error',
         'no-lone-blocks': 'error',
         'no-magic-numbers': 'off',

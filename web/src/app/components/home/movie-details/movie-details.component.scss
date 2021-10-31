@@ -1,0 +1,120 @@
+.movie-details-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "title-year title-year"
+        "rating rating"
+        "poster overview";
+    grid-template-rows: repeat(2, auto) 1fr;
+    grid-template-columns: 36.2rem 1fr;
+
+    .title-year {
+        grid-area: title-year;
+
+        font-size: 3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        &__text {
+            margin-right: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        &__release-year {
+            font-weight: normal;
+        }
+    }
+
+    .facts {
+        grid-area: rating;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 1.6rem;
+
+        &__avg {
+            font-weight: lighter;
+            margin: auto 1rem auto 0;
+        }
+
+        &__genre {
+            margin: auto .5rem auto 0;
+            background-color: lightgray;
+            border-radius: 4px;
+            padding: .5rem;
+
+            &:last-child {
+                margin: auto 1rem auto 0;
+            }
+        }
+
+        &__runtime {
+            margin: auto 0;
+        }
+    }
+
+    .poster {
+        grid-area: poster;
+
+        margin: auto 2rem auto 0;
+
+        &__tagline {
+            font-size: 1.8rem;
+            font-style: italic;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .overview-container {
+        grid-area: overview;
+        background-color: lightgray;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &__title {
+            font-size: 2.5rem;
+            margin-bottom: .5rem;
+        }
+
+        &__description {
+            font-size: 1.6rem;
+            margin-bottom: .5rem;
+        }
+
+        .split-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+            .cast-credits {
+                width: 80%;
+                margin-right: .5rem;
+            }
+
+            .other-facts {
+                width: 20%;
+
+                &__title {
+                    &--heading {
+                        font-size: 1.6rem;
+                        margin-bottom: .5rem;
+                    }
+
+                    &--text {
+                        font-size: 1.6rem;
+                        margin-bottom: .5rem;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<div class="card" *ngIf="imageConfig$ | async as imageConfig">
+    <div class="card__image">
+        <img [src]="imageConfig.images.secure_base_url + imageConfig.images.poster_sizes[2] + movie.poster_path"
+             [alt]="movie.title + ' Poster'"
+             loading="lazy">
+    </div>
+    <div class="card__information">
+        <h3 class="title">
+            {{movie.title}}
+        </h3>
+        <div class="split-container">
+            <div class="ratings">
+                <h4 class="ratings__text">{{movie.vote_average | number : '1.1-2'}} ({{movie.vote_count}})</h4>
+            </div>
+            <div class="view">
+                <button [routerLink]="['/movie', movie.id]"
+                        mat-stroked-button
+                >View
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

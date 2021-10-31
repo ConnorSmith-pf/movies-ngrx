@@ -1,0 +1,23 @@
+<div class="movie-list-container">
+    <div class="movie-list-container__sort-by-strip" *ngIf="sortedBy$ | async as sortedBy">
+        <h2 class="movie-list-container__sort-by-strip--text">Movies{{' Sorted By ' + sortedBy.viewValue}}</h2>
+        <div class="movie-list-container__sort-by-strip--drop-down">
+            <mat-form-field appearance="fill"
+                            color="primary">
+                <mat-label>Sort By</mat-label>
+                <mat-select (selectionChange)="sortBy($event)" [value]="sortedBy" [compareWith]="compareFn">
+                    <mat-option *ngFor="let sortOption of sortBySelect" [value]="sortOption">
+                        {{sortOption.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <cdk-virtual-scroll-viewport class="movie-list-container__content"
+                                 itemSize="20"
+                                 appendOnly>
+        <ng-container *cdkVirtualFor="let movie of moviesList$ | async; trackBy: trackById">
+            <movies-movies-card [movie]="movie"></movies-movies-card>
+        </ng-container>
+    </cdk-virtual-scroll-viewport>
+</div>

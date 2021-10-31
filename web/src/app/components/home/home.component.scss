@@ -1,0 +1,46 @@
+.movies-container {
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "body"
+        "powered-by";
+    grid-template-rows: 6.4rem calc(100vh - 6.4rem - 4.05rem) 4.05rem;
+
+    &__header {
+        grid-area: header;
+        background-color: var(--color-primary);
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    &__body {
+        grid-area: body;
+        padding: 2.5rem;
+    }
+
+    &__powered-by {
+        grid-area: powered-by;
+        background-color: var(--color-primary);
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+
+        &--suffix {
+            color: #FFFFFF;
+            margin: auto 0;
+        }
+
+        &--icon {
+            margin: auto 0 auto .5rem;
+            aspect-ratio: auto 154/20;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+    }
+}
